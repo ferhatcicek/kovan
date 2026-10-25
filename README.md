@@ -133,8 +133,10 @@ sürüm notları [CHANGELOG.md](CHANGELOG.md) dosyasındadır.
 
 ## Yol haritası
 
-Tepsi ikonu ve Windows bildirimleri · paket bağımlılık analizi · yığınlar (bağımlılık sıralı toplu başlatma) ·
-birleşik log görünümü · zamanlayıcı.
+· paket bağımlılık analizi 
+· yığınlar (bağımlılık sıralı toplu başlatma) 
+· birleşik log görünümü 
+· zamanlayıcı.
 
 ## Lisans
 
