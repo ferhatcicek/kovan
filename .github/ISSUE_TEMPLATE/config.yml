@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Güvenlik açığı bildirimi
+    url: https://github.com/ferhatcicek/kovan/security/advisories/new
+    about: Güvenlik açıklarını lütfen herkese açık issue olarak değil, buradan özel olarak bildirin.

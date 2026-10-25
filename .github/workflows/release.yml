@@ -1,0 +1,25 @@
+name: Release
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+
+jobs:
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: packaging\build_windows.bat
+        shell: cmd
+      - run: Compress-Archive -Path dist\Kovan\* -DestinationPath Kovan-${{ github.ref_name }}-windows.zip
+        shell: pwsh
+      - uses: softprops/action-gh-release@v2
+        with:
+          files: Kovan-${{ github.ref_name }}-windows.zip
+          generate_release_notes: true

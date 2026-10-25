@@ -1,0 +1,34 @@
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# Paketleme
+build/
+dist/
+.build-venv/
+*.spec
+
+# Kovan çalışma verisi (yerel denemeler)
+/data/
+kovan.lock
+*.kovan.json
+pydeck-config*.json
+kovan-config*.json
+
+# Ortam / gizli dosyalar (test fixture'ları hariç)
+.env
+!tests/fixtures/**/.env
+
+# Editör / işletim sistemi
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kovan · Kurulum</title>
+  <link rel="icon" href="/static/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/static/app.css">
+</head>
+<body>
+<div class="auth">
+  <div class="auth-card">
+    <div class="brand"><img class="logo" src="/static/logo.svg" alt="" width="28" height="28">Kovan</div>
+    <h1>Hoş geldiniz</h1>
+    <p>Panel bilgisayarınızda komut çalıştırabildiği için bir parola belirleyin. Panel yalnızca bu bilgisayardan (127.0.0.1) erişilebilir.</p>
+    {% if error %}<div class="alert">{{ error }}</div>{% endif %}
+    <form method="post" action="/auth/setup">
+      <label class="field"><span>Parola (en az 8 karakter)</span><input type="password" name="password" minlength="8" required autofocus autocomplete="new-password"></label>
+      <label class="field"><span>Parola (tekrar)</span><input type="password" name="password2" minlength="8" required autocomplete="new-password"></label>
+      <button class="btn primary" type="submit">Parolayı belirle ve başla</button>
+    </form>
+  </div>
+</div>
+</body>
+</html>

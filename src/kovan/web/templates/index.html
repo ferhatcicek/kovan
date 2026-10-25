@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="csrf-token" content="{{ csrf }}">
+  <title>Kovan</title>
+  <link rel="icon" href="/static/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/static/app.css">
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand"><img class="logo" src="/static/logo.svg" alt="" width="28" height="28">Kovan <span class="ver">v{{ version }}</span></div>
+    <nav class="nav" id="nav" aria-label="Filtreler"></nav>
+    <div class="sidebar-foot">
+      <div class="nav-item" id="btn-settings" role="button" tabindex="0">⚙ Ayarlar</div>
+      <form method="post" action="/auth/logout"><button class="btn sm" title="Çıkış yap" type="submit">Çıkış</button></form>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="banner hidden" id="ws-banner">Panel bağlantısı koptu — yeniden bağlanıyor…</div>
+    <div class="banner hidden" id="quarantine-banner"></div>
+    <header class="topbar">
+      <div class="search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input type="search" id="search" placeholder="Proje, etiket veya port ara…" aria-label="Ara">
+        <kbd>Ctrl K</kbd>
+      </div>
+      <div class="grow"></div>
+      <label class="row muted" title="CPU/RAM izleme (tüm projeler). Kapalıyken sistem yorulmaz.">
+        <span class="hide-sm">CPU/RAM izleme</span>
+        <span class="switch"><input type="checkbox" id="metrics-toggle"><span></span></span>
+      </label>
+      <button class="icon-btn bell" id="bell" title="Bildirimler" aria-label="Bildirimler">🔔</button>
+      <button class="btn" id="btn-discover">⟳ Klasörleri tara</button>
+      <button class="btn primary" id="btn-add">+ Proje ekle</button>
+    </header>
+    <div class="summary" id="summary"></div>
+    <div class="content" id="content"></div>
+  </main>
+</div>
+
+<section class="drawer" id="drawer" aria-label="Proje detayı"></section>
+<div class="bulkbar hidden" id="bulkbar"></div>
+<dialog id="modal"></dialog>
+<div class="toasts" id="toasts" aria-live="polite"></div>
+</body>
+</html>

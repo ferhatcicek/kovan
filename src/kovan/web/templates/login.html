@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kovan · Giriş</title>
+  <link rel="icon" href="/static/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/static/app.css">
+</head>
+<body>
+<div class="auth">
+  <div class="auth-card">
+    <div class="brand"><img class="logo" src="/static/logo.svg" alt="" width="28" height="28">Kovan</div>
+    <h1>Giriş yap</h1>
+    <p>Devam etmek için panel parolanızı girin.</p>
+    {% if error %}<div class="alert">{{ error }}</div>{% endif %}
+    <form method="post" action="/auth/login">
+      <label class="field"><span>Parola</span><input type="password" name="password" required autofocus autocomplete="current-password"></label>
+      <button class="btn primary" type="submit">Giriş</button>
+    </form>
+  </div>
+</div>
+</body>
+</html>

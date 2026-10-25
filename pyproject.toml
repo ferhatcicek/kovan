@@ -1,0 +1,73 @@
+[project]
+name = "kovan"
+version = "0.2.0"
+description = "Python projelerinizi tek bir yerel panelden başlatın, izleyin ve yönetin."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.11"
+authors = [{ name = "ferhatcicek" }]
+keywords = ["process-manager", "dashboard", "uvicorn", "flask", "django", "streamlit", "developer-tools"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Web Environment",
+    "Framework :: FastAPI",
+    "Intended Audience :: Developers",
+    "Natural Language :: Turkish",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: POSIX :: Linux",
+    "Operating System :: MacOS",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development",
+    "Topic :: System :: Monitoring",
+]
+dependencies = [
+    "fastapi>=0.110",
+    "uvicorn>=0.29",
+    "psutil>=5.9",
+    "jinja2>=3.1",
+    "argon2-cffi>=23.1",
+    "markdown-it-py>=3.0",
+    "nh3>=0.2.17",
+    "packaging>=24",
+    "python-multipart>=0.0.9",
+    "cryptography>=42",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "pytest-asyncio>=0.23", "httpx>=0.27", "flask>=3", "ruff>=0.6"]
+
+[project.urls]
+Homepage = "https://github.com/ferhatcicek/kovan"
+Issues = "https://github.com/ferhatcicek/kovan/issues"
+Changelog = "https://github.com/ferhatcicek/kovan/blob/main/CHANGELOG.md"
+
+[project.scripts]
+kovan = "kovan.main:main"
+
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/kovan"]
+
+[tool.hatch.build.targets.sdist]
+include = ["src/kovan", "tests", "docs", "assets", "packaging", "README.md", "LICENSE", "CHANGELOG.md"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+asyncio_mode = "auto"
+filterwarnings = ["ignore::DeprecationWarning:fastapi.testclient"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "B"]
+ignore = ["E501", "B008", "E741"]
